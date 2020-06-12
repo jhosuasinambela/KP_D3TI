@@ -1,8 +1,8 @@
 Judul Kerja Praktek   : Pembangunan Sistem Informasi Usaha Mikro Kecil Menengah (UMKM) Tapanuli Utara
 
 Nama Anggota Kelompok :
-1. 11317003   William Suarez Lumbantobing
-2. 11317025   Sylvia Kornelina Sihombing
-3. 11317048   Ayu Novita Ningsi Lumbantobing
-4. 11317064   Risdo Marisi Tesalonika Hutasoit
+1. William Suarez Lumbantobing            (11317003)
+2. Sylvia Kornelina Sihombing             (11317025)
+3. Ayu Novita Ningsi Lumbantobing         (11317048)
+4. Risdo Marisi Tesalonika Hutasoit       (11317064)
 
