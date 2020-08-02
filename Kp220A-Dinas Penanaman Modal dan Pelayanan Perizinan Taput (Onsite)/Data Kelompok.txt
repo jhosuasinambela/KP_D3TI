@@ -1,4 +1,4 @@
-Judul Kerja Praktek   : Rancang Bangun Sistem Informasi Internal Perizinan Kabupaten Tapanuli Utara
+Judul Kerja Praktek   : Pembangunan Sistem Informasi Internal Perizinan Kabupaten Tapanuli Utara
 
 Nama Anggota Kelompok :
 1. Sweta M Hutauruk            (11317008)
