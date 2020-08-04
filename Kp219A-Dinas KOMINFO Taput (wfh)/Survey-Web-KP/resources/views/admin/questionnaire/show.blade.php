@@ -13,7 +13,7 @@
       <h1>{{ $questionnaire->title }}</h1>
       <a class="btn btn-primary" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Buat Pertanyaan</a>
       <a class="btn btn-primary" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title) }}">Lakukan Survey</a>
-      <a class="btn btn-primary" href="/questionnaires/{{$questionnaire->id}}/export">Export Excel</a>
+      <a class="btn btn-primary hidden" href="/questionnaires/{{$questionnaire->id}}/export">Export Excel</a>
       <a class="btn btn-primary" href="/questionnaires/{{$questionnaire->id}}/exportPDF">Export PDF</a>
     </div>
   </div>
@@ -112,44 +112,43 @@
 @section('footer')
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
+    <script type="text/javascript">
+      Highcharts.chart('chartSurvey', {
+      chart: {
+          type: 'column'
+      },
+      title: {
+          text: 'Laporan Hasil Survey'
+      },
+      xAxis: {
+          categories: {!!json_encode($pertanyaan)!!},
+          crosshair: true
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Persentase Respon'
+          }
+      },
+      tooltip: {
+          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+              '<td style="padding:0"><b>{point.y:.1f} orang</b></td></tr>',
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+      },
+      plotOptions: {
+          column: {
+              pointPadding: 0.2,
+              borderWidth: 0
+          }
+      },
+      series: [{
+          name: 'Jumlah Responden',
+          data: {!!json_encode($responden)!!}
 
-  <script type="text/javascript">
-    Highcharts.chart('chartSurvey', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Laporan Hasil Survey'
-    },
-    xAxis: {
-        categories: {!!json_encode($pertanyaan)!!},
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Persentase Respon'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} orang</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Jumlah Responden',
-        data: {!!json_encode($responden)!!}
-
-    }]
-  });
-  </script>
+      }]
+    });
+    </script>
 @stop
